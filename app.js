@@ -3,8 +3,24 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const ErrorHandler = require('./middlewares/errorHandler');
+const userRouter = require('./routes/userRoute');
+const postRouter = require('./routes/postRoute');
+
+app.use('/auth',userRouter);
+app.use('/users',postRouter);
+
+
+app.use(ErrorHandler);
+
+app.use((req,res,next) => {
+    console.log('error catched by app.js error handler!');
+    res.status(500).send('Something went wrong!');
+})
 
 
 
