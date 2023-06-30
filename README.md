@@ -12,15 +12,15 @@
 
 ### ROUTES
 
-# GET (Find all available blogs) http://localhost:8000/api/v1/blogs/posts
+GET (Find all available blogs) http://localhost:8000/api/v1/blogs/posts
 
-# POST (Post your own blog) http://localhost:8000/api/v1/blogs/posts
+POST (Post your own blog) http://localhost:8000/api/v1/blogs/posts
 
-# GET (Get blog by id) http://localhost:8000/api/v1/blogs/posts/:id
+GET (Get blog by id) http://localhost:8000/api/v1/blogs/posts/:id
 
-# PUT (Update existing blog by id) http://localhost:8000/api/v1/blogs/posts/:id
+PUT (Update existing blog by id) http://localhost:8000/api/v1/blogs/posts/:id
 
-# DELETE (delete blog by id) http://localhost:8000/api/v1/blogs/posts/:id
+DELETE (delete blog by id) http://localhost:8000/api/v1/blogs/posts/:id
 
 #
 
