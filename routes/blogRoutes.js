@@ -5,7 +5,13 @@ const router = express.Router();
 
 router
     .route('/posts')
-    .get(bolgController.getBlog);
+    .get(bolgController.getAllBlogs)
+    .post(bolgController.postBlog);
 
+router
+    .route('/posts/:id')
+    .get(bolgController.getBlog)
+    .put(bolgController.updateOne)
+    .delete(bolgController.deleteOne)
 
 module.exports = router;

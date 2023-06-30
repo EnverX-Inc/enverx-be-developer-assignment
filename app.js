@@ -31,4 +31,15 @@ app.all("*", (req, res, next) => {
     });
 });
 
+app.use((err, req, res, next) => {
+    err.status = err.status || "error";
+    err.statusCode = err.statusCode || 500;
+    return res.status(err.statusCode).json({
+        title: 'Something went wrong!',
+        status: err.status,
+        msg: err.message
+    })
+})
+
+
 module.exports = app;
