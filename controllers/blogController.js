@@ -1,4 +1,5 @@
 const Blog = require('../model/blogModel');
+const AppError = require('../utils/appError');
 
 exports.getAllBlogs = async (req, res, next) => {
     try {
@@ -10,12 +11,8 @@ exports.getAllBlogs = async (req, res, next) => {
                 blogs
             }
         })
-
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            message: error
-        })
+        return next(new AppError(error, 500));
     }
 }
 
@@ -30,10 +27,7 @@ exports.postBlog = async (req, res, next) => {
         });
 
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            message: error
-        })
+        return next(new AppError(error, 500));
     }
 }
 
@@ -49,10 +43,7 @@ exports.getBlog = async (req, res, next) => {
         });
 
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            message: error
-        })
+        return next(new AppError(error, 500));
     }
 }
 
@@ -62,10 +53,7 @@ exports.updateOne = async (req, res, next) => {
         const doc = await Blog.findByIdAndUpdate(id, req.body, { new: true, runValidators: true });
 
         if (!doc) {
-            res.status(404).json({
-                status: 'fail',
-                message: "No Blog found with this id"
-            })
+            return next(new AppError("No Blog found with this id", 404));
         }
         res.status(200).json({
             status: "success",
@@ -75,21 +63,15 @@ exports.updateOne = async (req, res, next) => {
         });
 
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            message: error
-        })
+        return next(new AppError(error, 500));
     }
 }
 
 exports.deleteOne = async (req, res, next) => {
     try {
-        const doc = await Model.findByIdAndDelete(req.params.id);
+        const doc = await Blog.findByIdAndDelete(req.params.id);
         if (!doc) {
-            res.status(404).json({
-                status: 'fail',
-                message: "No Blog found with this id"
-            })
+            return next(new AppError("No Blog found with this id", 404));
         }
         res.status(200).json({
             status: "success",
@@ -98,9 +80,6 @@ exports.deleteOne = async (req, res, next) => {
             },
         });
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            message: error
-        })
+        return next(new AppError(error, 500));
     }
 }

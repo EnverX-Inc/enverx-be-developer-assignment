@@ -1,7 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 
-
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 const blogRouter = require('./routes/blogRoutes');
 
 const app = express();
@@ -25,21 +26,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/blogs', blogRouter);
 app.all("*", (req, res, next) => {
-    res.status(404).json({
-        status: "fail",
-        message: `Cant find ${req.originalUrl} on this server!`,
-    });
+    next(new AppError(`Cant find ${req.originalUrl} on this server!`, 404));
 });
 
-app.use((err, req, res, next) => {
-    err.status = err.status || "error";
-    err.statusCode = err.statusCode || 500;
-    return res.status(err.statusCode).json({
-        title: 'Something went wrong!',
-        status: err.status,
-        msg: err.message
-    })
-})
+app.use(globalErrorHandler);
 
 
 module.exports = app;

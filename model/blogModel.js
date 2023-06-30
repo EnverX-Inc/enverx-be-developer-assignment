@@ -10,7 +10,8 @@ const blogSchema = new mongoose.Schema({
         required: [true, "Author name is required"]
     },
     image: {
-        type: String
+        type: String,
+        default: "image.jpg"
     },
     bolgContent: {
         type: String,
