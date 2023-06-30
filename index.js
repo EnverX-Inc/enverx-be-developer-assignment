@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 require("dotenv").config();
 const port = process.env.PORT || 8081;
 const { connection } = require("./config/db");
+const { BlogRouter } = require("./routes/blog.routes");
 
 app.get("/", (req, res) => {
   try {
@@ -11,6 +13,8 @@ app.get("/", (req, res) => {
     res.status(404).send({ message: error.message });
   }
 });
+
+app.use("/posts", BlogRouter);
 
 app.listen(port, async () => {
   try {
