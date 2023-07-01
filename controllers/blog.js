@@ -62,7 +62,8 @@ updateBlog: async (req, res, next) => {
     if(req.body.content) obj.content = req.body.content;
     if(req.body.author) obj.author = req.body.author;
     if(req.body.summary) obj.summary = req.body.summary;
-    const updatedBlog = await Blog.updateOne({_id: req.params.id}, obj);
+    if(req.body.category) obj.category = req.body.category;
+    const updatedBlog = await Blog.updateOne({id: req.params.id}, obj);
     res.status(200).json(updatedBlog);
   } catch (err) {
     res.status(500).json({
