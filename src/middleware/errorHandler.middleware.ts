@@ -1,7 +1,12 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import ErrorResponse from '../utils/errorResponse';
 
-export const errorHandler = (err: ErrorResponse, _: Request, res: Response) => {
+export const errorHandler = (
+  err: ErrorResponse,
+  _: Request,
+  res: Response,
+  __: NextFunction
+) => {
   const error = { ...err };
 
   error.message = err.message;

@@ -12,10 +12,13 @@ export class Blogs {
   blog_id: string;
 
   @Column()
-  title: string;
+  name: string;
 
   @Column()
   description: string;
+
+  @Column()
+  category: string;
 
   @CreateDateColumn()
   c_ts: Date;

@@ -1,12 +1,21 @@
-export default class SuccessResponse {
+import { Response } from 'express';
+
+class SuccessResponse {
   data: any;
   txt: any;
-  statusCode: number;
   status: boolean;
-  constructor(data: any, statusCode: number = 200, txt: string = '') {
-    this.statusCode = statusCode;
+  constructor(data: any, txt: string) {
+    this.status = true;
     this.txt = txt;
     this.data = data;
-    this.status = true;
   }
+}
+
+export default function response(
+  res: Response,
+  data: any,
+  statusCode: number = 200,
+  txt: string = ''
+) {
+  return res.status(statusCode).json(new SuccessResponse(data, txt));
 }

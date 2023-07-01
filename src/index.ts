@@ -2,10 +2,11 @@ import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import 'reflect-metadata';
-import ErrorResponse from './utils/errorResponse';
-import SuccessResponse from './utils/successResponse';
+import response from './utils/successResponse';
 import { errorHandler } from './middleware/errorHandler.middleware';
 import { AppDataSource } from './utils/dataSource.utils';
+import blogRouter from './routes/blog.route';
+import ErrorResponse from './utils/errorResponse';
 
 const App = async () => {
   const app = express();
@@ -27,10 +28,11 @@ const App = async () => {
   app.use(morgan('dev'));
 
   app.get('/', (_: Request, res: Response) => {
-    res.send(new SuccessResponse({}, 200, 'Welcome to Home of Blog App'));
+    res.send(response(res, {}, 200, 'Welcome to Home of Blog App'));
   });
 
   // Router will be added here
+  app.use('/api/blog', blogRouter);
 
   // 404 Route Handler
   app.use((_: Request, __: Response, next: NextFunction) => {
