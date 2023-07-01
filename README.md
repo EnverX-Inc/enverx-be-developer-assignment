@@ -4,7 +4,7 @@
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [API Documentation](#api-documentation)
-- [Resume](./Gopal_Resume_.pdf)
+- [Resume](./Gopal_Resume.pdf)
 
 ## General info
 
