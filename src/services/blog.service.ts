@@ -28,3 +28,15 @@ export async function _findAll(params: object) {
     throw err;
   }
 }
+
+export async function _insert(post: Blogs) {
+  try {
+    let blogRep = AppDataSource.getRepository(Blogs);
+
+    let data = await blogRep.insert(post);
+
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}
