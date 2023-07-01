@@ -41,11 +41,9 @@ Note: Make sure to add proper `commit` messages
 7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
 8. Optionally, include any additional features or improvements you think would enhance the API.
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
-
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+### Setup the Project
+1. Clone the "enverx-be-developer-assignment" repositry.
+2. cd enverx-be-developer-assignment
+3. npm i
+4. create the .env file and assign the value to "connectionUrl"
+5. npm run start
