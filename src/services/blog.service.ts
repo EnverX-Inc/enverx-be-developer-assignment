@@ -56,3 +56,18 @@ export async function _update(id: string, post: Blogs) {
     throw err;
   }
 }
+
+export async function _delete(id: string) {
+  try {
+    let blogRep = AppDataSource.getRepository(Blogs);
+
+    let data = await blogRep.delete(id);
+
+    if (!data || !data.affected)
+      throw new ErrorResponse('Blog Post Does Not Exist', 400);
+
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}

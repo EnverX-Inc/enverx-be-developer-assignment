@@ -1,6 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import response from '../utils/successResponse';
-import { _find, _findAll, _insert, _update } from '../services/blog.service';
+import {
+  _delete,
+  _find,
+  _findAll,
+  _insert,
+  _update,
+} from '../services/blog.service';
 import ErrorResponse from '../utils/errorResponse';
 
 interface params {
@@ -89,6 +95,22 @@ export async function updatePost(
     let data = await _update(id, post);
 
     return response(res, data, 200, 'Blog Post Updated');
+  } catch (err) {
+    return next(err);
+  }
+}
+
+export async function deletePost(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    let id = req.params.id;
+
+    let data = await _delete(id);
+
+    return response(res, data, 200, 'Blog Post Deleted');
   } catch (err) {
     return next(err);
   }
