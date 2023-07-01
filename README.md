@@ -1,51 +1,182 @@
-[![N|Solid](https://iili.io/Hi9giog.png)](https://www.enverx.com/)
+## Table of contents
 
-EnverX offers a simple and convenient platform to fund early-stage projects
-and trade future carbon credits.
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [API Documentation](#api-documentation)
+- [Resume](./Gopal_Resume.pdf)
 
-## _Assginment For Backend Developer Role_
+## General info
 
-### Instructions
-``` diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
+Refer [here](./EnverX_README.md) for requirement.
+
+Deployed Project Endpoint link: https://enverx.task.ser-veresta.dev/api/blog
+
+## Technologies
+
+Project is created with:
+
+- NodeJS
+- Typscript
+- Express
+- Postgres
+
+## Setup
+
+To run this project follow the bellow steps (Need Docker Compose installed locally):
+
+```bash
+git clone https://github.com/ser-veresta/enverx-be-developer-assignment.git
+cd enverx-be-developer-assignment
+git checkout development
+docker-compose up -d
+
 ```
 
-### Task Requirements
-1. Create a RESTful API for a simple blog application.
-2. Use Node.js and Express.js as the backend framework.
-3. Implement CRUD (Create, Read, Update, Delete) operations for blog posts.
-4. Store the blog posts in a dB
-5. Include validation for the API endpoints to ensure data integrity.
-6. Implement error handling and return appropriate HTTP status codes.
-7. Use Git for version control and host the project on GitHub.
-8. Write clear and concise documentation on how to set up and use the API.
+The Server start in PORT 8080 as per the docker compose file.
 
-### Functional Requirements
-1. Set up a new Node.js project and initialize it with a package.json file.
-2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
+## API Documentation
 
-- `GET /posts` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category).
-- `GET /posts/:id` - Get a specific blog post by ID.
-- `POST /posts` - Create a new blog post.
-- `PUT /posts/:id` - Update an existing blog post.
-- `DELETE /posts/:id` - Delete a blog post.
+### Routes
 
-3. Implement validation for the API endpoints to ensure the data is correct and complete.
-4. Handle errors gracefully and return appropriate HTTP status codes (e.g., 404 for not found, 500 for server errors, etc.).
-5. Test the API endpoints using a tool like Postman or cURL.
-6. Write a README.md file with instructions on setting up the project, running it, and using the API.
-7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
-8. Optionally, include any additional features or improvements you think would enhance the API.
+#### GET /posts
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+**Description** :- Based on the optional parmeters provided returns response sorted in Ascending order.
+**Optional Parameters** :- c_ts=1,name=1,category=1
+**Sample Request** :- {{host}}/api/blog/posts?category=1
+**Sample Response** :-
 
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+```json
+{
+  "status": true,
+  "txt": "",
+  "data": [
+    {
+      "blog_id": "04e4afde-3a35-4721-9190-20062ddd36aa",
+      "name": "Test Business",
+      "description": "Testing Business Related Blog",
+      "category": "business",
+      "c_ts": "2023-07-01T15:23:35.199Z",
+      "u_ts": "2023-07-01T15:23:35.199Z"
+    },
+    {
+      "blog_id": "4542ed09-9b17-4482-825a-1d07fca5074f",
+      "name": "Test Media",
+      "description": "Testing Updated Media Related Blog",
+      "category": "media",
+      "c_ts": "2023-07-01T14:26:34.533Z",
+      "u_ts": "2023-07-01T14:42:14.266Z"
+    }
+  ]
+}
+```
+
+#### GET /posts/:id
+
+**Description** :- Get Individual Post with Blog Post ID
+**Parameters** :- id
+**Sample Request** :- {{host}}/api/blog/posts/04e4afde-3a35-4721-9190-20062ddd36aa
+**Sample Response** :-
+
+```json
+{
+  "status": true,
+  "txt": "",
+  "data": {
+    "blog_id": "04e4afde-3a35-4721-9190-20062ddd36aa",
+    "name": "Test Business",
+    "description": "Testing Business Related Blog",
+    "category": "business",
+    "c_ts": "2023-07-01T15:23:35.199Z",
+    "u_ts": "2023-07-01T15:23:35.199Z"
+  }
+}
+```
+
+#### POST /posts
+
+**Description** :- Insert New Blog Post
+**Sample Request** :- {{host}}/api/blog/posts
+
+```json
+{
+  "name": "Test Sport",
+  "description": "Testing Sport Related Blog",
+  "category": "Sport"
+}
+```
+
+**Sample Response** :-
+
+```json
+{
+  "status": true,
+  "txt": "Blog Post Inserted",
+  "data": {
+    "identifiers": [
+      {
+        "blog_id": "483b6709-83ce-4454-94e5-b4518772d362"
+      }
+    ],
+    "generatedMaps": [
+      {
+        "blog_id": "483b6709-83ce-4454-94e5-b4518772d362",
+        "c_ts": "2023-07-01T15:33:36.938Z",
+        "u_ts": "2023-07-01T15:33:36.938Z"
+      }
+    ],
+    "raw": [
+      {
+        "blog_id": "483b6709-83ce-4454-94e5-b4518772d362",
+        "c_ts": "2023-07-01T15:33:36.938Z",
+        "u_ts": "2023-07-01T15:33:36.938Z"
+      }
+    ]
+  }
+}
+```
+
+#### PUT /posts/:id
+
+**Description** :- Update Post with Blog Post ID
+**Parameters** :- id
+**Sample Request** :- {{host}}/api/blog/posts/04e4afde-3a35-4721-9190-20062ddd36aa
+
+```json
+{
+  "name": "Test Sport Updated",
+  "description": "Testing Updated Sport Related Blog"
+}
+```
+
+**Sample Response** :-
+
+```json
+{
+  "status": true,
+  "txt": "Blog Post Updated",
+  "data": {
+    "generatedMaps": [],
+    "raw": [],
+    "affected": 1
+  }
+}
+```
+
+#### DELETE /posts/:id
+
+**Description** :- Delete Post with Blog Post ID
+**Parameters** :- id
+**Sample Request** :- {{host}}/api/blog/posts/04e4afde-3a35-4721-9190-20062ddd36aa
+**Sample Response** :-
+
+```json
+{
+  "status": true,
+  "txt": "Blog Post Deleted",
+  "data": {
+    "raw": [],
+    "affected": 1
+  }
+}
+```
