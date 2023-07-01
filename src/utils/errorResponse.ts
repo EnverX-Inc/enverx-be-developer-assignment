@@ -1,3 +1,4 @@
+// Generic Error Response Structure
 export default class ErrorResponse extends Error {
   statusCode: number;
   data: any;

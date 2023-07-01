@@ -4,6 +4,7 @@ import ErrorResponse from '../utils/errorResponse';
 
 const blogRep = AppDataSource.getRepository(Blogs);
 
+// Service to fetch all the records
 export async function _find(params: object) {
   try {
     let data = await blogRep.findOne({
@@ -16,6 +17,7 @@ export async function _find(params: object) {
   }
 }
 
+// Service to fetch individual record with id
 export async function _findAll(params: object) {
   try {
     let data = await blogRep.find({
@@ -28,6 +30,7 @@ export async function _findAll(params: object) {
   }
 }
 
+// Service to insert single record
 export async function _insert(post: Blogs) {
   try {
     let data = await blogRep.insert(post);
@@ -38,6 +41,7 @@ export async function _insert(post: Blogs) {
   }
 }
 
+// Service to update single record
 export async function _update(id: string, post: Blogs) {
   try {
     let data = await blogRep.update(id, post);
@@ -51,6 +55,7 @@ export async function _update(id: string, post: Blogs) {
   }
 }
 
+// Service to delete single record
 export async function _delete(id: string) {
   try {
     let data = await blogRep.delete(id);

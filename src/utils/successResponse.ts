@@ -1,5 +1,6 @@
 import { Response } from 'express';
 
+// Generic Succes Response Structure
 class SuccessResponse {
   data: any;
   txt: any;
@@ -11,6 +12,7 @@ class SuccessResponse {
   }
 }
 
+// Generic Success Response Handler
 export default function response(
   res: Response,
   data: any,

@@ -15,6 +15,11 @@ interface params {
   };
 }
 
+/*
+Method: GET
+Route: /posts
+Params: name,c_ts,category
+*/
 export async function getBlogs(
   req: Request,
   res: Response,
@@ -47,6 +52,10 @@ export async function getBlogs(
   }
 }
 
+/*
+Method: GET
+Route: /posts/:id
+*/
 export async function getPost(req: Request, res: Response, next: NextFunction) {
   try {
     let id = req.params.id;
@@ -67,6 +76,11 @@ export async function getPost(req: Request, res: Response, next: NextFunction) {
   }
 }
 
+/*
+Method: POST
+Route: /posts
+Request Body: name,description,category
+*/
 export async function createPost(
   req: Request,
   res: Response,
@@ -83,6 +97,11 @@ export async function createPost(
   }
 }
 
+/*
+Method: PUT
+Route: /posts/:id
+Request Body: name,description,category
+*/
 export async function updatePost(
   req: Request,
   res: Response,
@@ -100,6 +119,11 @@ export async function updatePost(
   }
 }
 
+/*
+Method: DELETE
+Route: /posts/:id
+Request Body: name,description,category
+*/
 export async function deletePost(
   req: Request,
   res: Response,
