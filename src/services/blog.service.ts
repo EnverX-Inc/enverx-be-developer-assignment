@@ -11,6 +11,8 @@ export async function _find(params: object) {
       ...params,
     });
 
+    if (!data) throw new ErrorResponse('Blog Post Does Not Exist', 400);
+
     return data;
   } catch (err) {
     throw err;
