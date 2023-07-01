@@ -25,10 +25,11 @@ Project is created with:
 
 To run this project follow the bellow steps (Need Docker Compose installed locally):
 
-```
-$ git clone https://github.com/ser-veresta/enverx-be-developer-assignment.git
-$ cd enverx-be-developer-assignment
-$ docker-compose up -d
+```bash
+git clone https://github.com/ser-veresta/enverx-be-developer-assignment.git
+cd enverx-be-developer-assignment
+git checkout development
+docker-compose up -d
 
 ```
 
@@ -42,7 +43,7 @@ The Server start in PORT 8080 as per the docker compose file.
 
 **Description** :- Based on the optional parmeters provided returns response sorted in Ascending order.
 **Optional Parameters** :- c_ts=1,name=1,category=1
-**Sample Request** :- {{host}}/api/blog/posts?c_ts=1&category=1
+**Sample Request** :- {{host}}/api/blog/posts?category=1
 **Sample Response** :-
 
 ```json
