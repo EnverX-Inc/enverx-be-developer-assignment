@@ -2,10 +2,10 @@ import { Blogs } from '../entities/blog.entity';
 import { AppDataSource } from '../utils/dataSource.utils';
 import ErrorResponse from '../utils/errorResponse';
 
+const blogRep = AppDataSource.getRepository(Blogs);
+
 export async function _find(params: object) {
   try {
-    const blogRep = AppDataSource.getRepository(Blogs);
-
     let data = await blogRep.findOne({
       ...params,
     });
@@ -18,8 +18,6 @@ export async function _find(params: object) {
 
 export async function _findAll(params: object) {
   try {
-    const blogRep = AppDataSource.getRepository(Blogs);
-
     let data = await blogRep.find({
       ...params,
     });
@@ -32,8 +30,6 @@ export async function _findAll(params: object) {
 
 export async function _insert(post: Blogs) {
   try {
-    let blogRep = AppDataSource.getRepository(Blogs);
-
     let data = await blogRep.insert(post);
 
     return data;
@@ -44,8 +40,6 @@ export async function _insert(post: Blogs) {
 
 export async function _update(id: string, post: Blogs) {
   try {
-    let blogRep = AppDataSource.getRepository(Blogs);
-
     let data = await blogRep.update(id, post);
 
     if (!data || !data.affected)
@@ -59,8 +53,6 @@ export async function _update(id: string, post: Blogs) {
 
 export async function _delete(id: string) {
   try {
-    let blogRep = AppDataSource.getRepository(Blogs);
-
     let data = await blogRep.delete(id);
 
     if (!data || !data.affected)
