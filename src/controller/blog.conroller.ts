@@ -1,12 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import response from '../utils/successResponse';
-import { _findAll } from '../services/blog.service';
+import { _find, _findAll } from '../services/blog.service';
+import ErrorResponse from '../utils/errorResponse';
 
 interface params {
-  order: {
-    name?: string;
-    c_ts?: string;
-    category?: string;
+  [key: string]: {
+    [key: string]: string;
   };
 }
 
@@ -36,8 +35,28 @@ export async function getBlogs(
 
     let data = await _findAll(params);
 
-    res.send(response(res, data, 200));
+    res.send(response(res, data));
   } catch (err: any) {
+    return next(err);
+  }
+}
+
+export async function getPost(req: Request, res: Response, next: NextFunction) {
+  try {
+    let id = req.params.id;
+
+    if (!id) throw new ErrorResponse('Invalid Id', 400);
+
+    let params: params = {
+      where: {
+        blog_id: id,
+      },
+    };
+
+    let data = await _find(params);
+
+    return response(res, data);
+  } catch (err) {
     return next(err);
   }
 }
