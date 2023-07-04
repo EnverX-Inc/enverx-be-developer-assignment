@@ -4,6 +4,7 @@ import { connectDB } from "../models/database"
 export const getAllPosts = (request:express.Request, response:express.Response) => {
     try {
         let db = connectDB()
+        let result: Array<object> = []
         console.log("Getting all posts")
         db.all(`SELECT * FROM posts`,[], function(err:any, rows: Array<object>){
             if(err){
@@ -12,8 +13,10 @@ export const getAllPosts = (request:express.Request, response:express.Response) 
             } 
             rows.forEach(element => {
                 console.log(element)
+                result.push(element)
             });
 
+            response.status(200).json(result)
         })
         db.close()
     }
@@ -21,7 +24,7 @@ export const getAllPosts = (request:express.Request, response:express.Response) 
 
     }
     finally{
-        response.json({"works": "y"})
+        
     }
 }
 
@@ -48,21 +51,18 @@ export const getPost = () => {
 }
 
 export const newPost = (request:express.Request, response:express.Response) => {
-    let query = `INSERT INTO posts VALUES (?), (?), (?), (?)`
+    let query = `INSERT INTO posts(title, content, category_id) VALUES (?, ?, ?)`
     try{
         let db = connectDB()
-        console.log('new post')
-        let values = []
-        values.push("Test insert title")
-        values.push("Test insert title")
-        // values.push(toString(new Date()))
-        values.push(1)
+        console.log('adding a new post')
+        let values = [request.body.title, request.body.content, request.body.category_id]
+
         db.run(query,values, function(err:any){
             if(err){
                 console.log(err)
                 return
             }
-            console.log("inserted")
+            console.log("inserted post")
             db.close()
         })
     }

@@ -23,7 +23,7 @@ export const createPostsTable = () => {
             title TEXT NOT NULL,
             content TEXT NOT NULL,
             category_id INTEGER,
-            created_date TEXT NOT NULL,
+            created_date DATETIME DEFAULT CURRENT_DATE,
             FOREIGN KEY (category_id) 
             REFERENCES categories (category_id)
             ON DELETE SET NULL
