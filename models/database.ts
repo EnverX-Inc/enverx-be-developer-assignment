@@ -6,7 +6,7 @@ export const connectDB = () => {
         if (err) {
           console.error(err.message);
         }
-        console.log('Connected to the sqlite3 database.');
+        // console.log('Connected to the sqlite3 database.');
       });
     return db
 

@@ -1,11 +1,8 @@
 import express from 'express'
 import postsRouter from './routes/postsRouter'
-import dotenv from 'dotenv'
 import { createPostsTable, createCategoryTable, insertCategory, deleteCategories, deletePosts, getAll } from './models/database'
-import exp from 'constants'
 
 
-dotenv.config()
 
 const hostname: string = '127.0.0.1'
 const port: number = 5000
