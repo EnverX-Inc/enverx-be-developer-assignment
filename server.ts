@@ -1,7 +1,7 @@
 import express from 'express'
 import postsRouter from './routes/postsRouter'
 import dotenv from 'dotenv'
-import { createPostsTable, createCategoryTable } from './models/database'
+import { createPostsTable, createCategoryTable, insertCategory, deleteCategories, deletePosts, getAll } from './models/database'
 
 
 dotenv.config()
@@ -21,6 +21,11 @@ app.use('/posts', postsRouter)
 
 // createCategoryTable()
 // createPostsTable()
+// insertCategory('tech')
+// insertCategory('fashion')
+// deleteCategories()
+// deletePosts()
+getAll()
 
 app.listen(port, hostname, ()=>{
     console.log(`Listening at ${hostname} : ${port}`)
