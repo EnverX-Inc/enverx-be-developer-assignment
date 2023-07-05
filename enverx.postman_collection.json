@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "5905af5a-d0d3-4982-a6f6-a735aeac591b",
+		"name": "enverx",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24580566"
+	},
+	"item": [
+		{
+			"name": "User APIs",
+			"item": [
+				{
+					"name": "/register-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test User\",\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"Password@1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/register-user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"tushar7140@gmail.com\",\r\n    \"password\": \"tushar28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/login-user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts APIs",
+			"item": [
+				{
+					"name": "Create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE0NTAwYjE4ZGMzNjA2OTEzZjk3NTMiLCJlbWFpbCI6InR1c2hhcjcxNDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMzRqTDJTZW5tSW1WYmlPWUtHQjVndU44SDFvY3VqMFJJcmtuZlBxendkY2xwS1JZRGpQdjIiLCJpYXQiOjE2ODg0OTEzODYsImV4cCI6MTY4OTA5NjE4Nn0.Ssmmz-WPPOGLivuTv6wrQQX9XRUJtjWD_fFbffF6MAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"blog\": \"Hey This is third travel blog\",\r\n    \"category\": \"Travel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE0NTAwYjE4ZGMzNjA2OTEzZjk3NTMiLCJlbWFpbCI6InR1c2hhcjcxNDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMzRqTDJTZW5tSW1WYmlPWUtHQjVndU44SDFvY3VqMFJJcmtuZlBxendkY2xwS1JZRGpQdjIiLCJpYXQiOjE2ODg0OTEzODYsImV4cCI6MTY4OTA5NjE4Nn0.Ssmmz-WPPOGLivuTv6wrQQX9XRUJtjWD_fFbffF6MAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"Travel\",\r\n    \"blog\": \"Here is the updated blog\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts/64a4560a83f58b7286994e09",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"64a4560a83f58b7286994e09"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE0NTAwYjE4ZGMzNjA2OTEzZjk3NTMiLCJlbWFpbCI6InR1c2hhcjcxNDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMzRqTDJTZW5tSW1WYmlPWUtHQjVndU44SDFvY3VqMFJJcmtuZlBxendkY2xwS1JZRGpQdjIiLCJpYXQiOjE2ODg0OTEzODYsImV4cCI6MTY4OTA5NjE4Nn0.Ssmmz-WPPOGLivuTv6wrQQX9XRUJtjWD_fFbffF6MAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/64a4560a83f58b7286994e09",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"64a4560a83f58b7286994e09"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE0NTAwYjE4ZGMzNjA2OTEzZjk3NTMiLCJlbWFpbCI6InR1c2hhcjcxNDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMzRqTDJTZW5tSW1WYmlPWUtHQjVndU44SDFvY3VqMFJJcmtuZlBxendkY2xwS1JZRGpQdjIiLCJpYXQiOjE2ODg0OTEzODYsImV4cCI6MTY4OTA5NjE4Nn0.Ssmmz-WPPOGLivuTv6wrQQX9XRUJtjWD_fFbffF6MAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/64a4560a83f58b7286994e09",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"64a4560a83f58b7286994e09"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get posts with filter, pagination and searchQuery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE0NTAwYjE4ZGMzNjA2OTEzZjk3NTMiLCJlbWFpbCI6InR1c2hhcjcxNDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMzRqTDJTZW5tSW1WYmlPWUtHQjVndU44SDFvY3VqMFJJcmtuZlBxendkY2xwS1JZRGpQdjIiLCJpYXQiOjE2ODg0OTEzODYsImV4cCI6MTY4OTA5NjE4Nn0.Ssmmz-WPPOGLivuTv6wrQQX9XRUJtjWD_fFbffF6MAw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts?category=travel&skip=0&limit=10&sortingKey=createdAt&sortingOrder=-1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "travel"
+								},
+								{
+									"key": "searchQuery",
+									"value": "third",
+									"disabled": true
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sortingKey",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortingOrder",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
