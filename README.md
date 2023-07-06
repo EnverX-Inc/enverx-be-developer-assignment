@@ -1,52 +1,61 @@
-[![N|Solid](https://iili.io/Hi9giog.png)](https://www.enverx.com/)
+## Setup Guide
 
-EnverX offers a simple and convenient platform to fund early-stage projects
-and trade future carbon credits.
+1. Clone this repo from : "https://github.com/ashishpatil-git/enverx-be-developer-assignment.git".
+2. Switch to Development branch.
+3. Take a fresh `pull`.
+4. Create a .env file in your root.
+5. Add your database credentials and port number in it.
+   - PORT = "your desired port number"
+   - DB_USERNAME = "your db username"
+   - DB_PASSWORD = "your db password"
+   - DB_HOST = "your db hostname"
+   - DB_NAME = "your db name"
 
-## _Assginment For Backend Developer Role_
+## Dependency installations :-
 
-### Instructions
-``` diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
-```
+1. In order to Install all required dependencies, you need to run the below command.
 
-### Task Requirements
-1. Create a RESTful API for a simple blog application.
-2. Use Node.js and Express.js as the backend framework.
-3. Implement CRUD (Create, Read, Update, Delete) operations for blog posts.
-4. Store the blog posts in a dB
-5. Include validation for the API endpoints to ensure data integrity.
-6. Implement error handling and return appropriate HTTP status codes.
-7. Use Git for version control and host the project on GitHub.
-8. Write clear and concise documentation on how to set up and use the API.
-9. Use Typescript to get a Bonus point.
+- `npm install` or `npm i`
 
-### Functional Requirements
-1. Set up a new Node.js project and initialize it with a package.json file.
-2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
+## Procedure to run this Application
 
-- `GET /posts` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category).
-- `GET /posts/:id` - Get a specific blog post by ID.
-- `POST /posts` - Create a new blog post.
-- `PUT /posts/:id` - Update an existing blog post.
-- `DELETE /posts/:id` - Delete a blog post.
+1. Once done with all the installations, you need to hit the below command.
 
-3. Implement validation for the API endpoints to ensure the data is correct and complete.
-4. Handle errors gracefully and return appropriate HTTP status codes (e.g., 404 for not found, 500 for server errors, etc.).
-5. Test the API endpoints using a tool like Postman or cURL.
-6. Write a README.md file with instructions on setting up the project, running it, and using the API.
-7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
-8. Optionally, include any additional features or improvements you think would enhance the API.
+- `npm run start`
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+Note :- You can setup your local database and configure your details in environment variables.(I have used Mongo Atlas due to some issues with my local DB).
+Refer this link :- https://www.prisma.io/dataguide/mongodb/setting-up-a-local-mongodb-database#setting-up-mongodb-on-windows
 
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+## Procedure to use the API endpoints :-
+
+1. Get All available post :-
+
+- Method :- GET
+- `{your host address:port_number}/posts` (eg. http://localhost:3000/posts)
+- Additionally, you can filter your posts using filter query added in the url.
+- `{your host address:port_number}/posts?filter={category_name}` (eg. http://localhost:3000/posts?filter=Videography)
+- Body Parameters : title,content,category
+
+2. Get Specific Post by ID :-
+
+- Method :- GET
+- `{your host address:port_number}/posts/{id}` (eg. http://localhost:3000/posts/123)
+
+3. Create a new blogpost :-
+
+- Method :- POST
+- `{your host address:port_number}/posts` (eg. http://localhost:3000/posts)
+- Body Parameters : title,content,category
+
+4. Update a Existing Blog post :-
+
+- Method :- PUT
+- `{your host address:port_number}/posts/{id}` (eg. http://localhost:3000/posts)
+- Body Parameters : {title?,content?,category?}
+
+5. Delete a Specific blog post based on ID.
+
+- Method :- DELETE
+- `{your host address:port_number}/posts/{id}` (eg. http://localhost:3000/posts/123)
+
+Note :- Blog title should be Unique and cannot be updated once used.
