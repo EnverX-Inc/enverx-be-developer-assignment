@@ -58,4 +58,4 @@ Refer this link :- https://www.prisma.io/dataguide/mongodb/setting-up-a-local-mo
 - Method :- DELETE
 - `{your host address:port_number}/posts/{id}` (eg. http://localhost:3000/posts/123)
 
-Note :- Blog title should be Unique and cannot be updated once used.
+Note :- Blog title should be Unique and can be updated only with Unique name only.

@@ -20,17 +20,25 @@ export const getAllPosts = async (req: Request, res: Response) => {
 };
 
 export const createPost = async (req: Request, res: Response) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
   try {
     const { title, content, category } = req.body;
     const post = new Blog({ title, content, category });
-    await post.save();
-    res.json(post);
+    post
+      .save()
+      .then((result) => {
+        return res.status(201).json({
+          user: result,
+          message: "Blog created Successfully",
+        });
+      })
+      .catch((err) => {
+        return res.status(500).json({
+          message: "Error Creating Blog",
+          reason: err.message,
+        });
+      });
   } catch (error) {
-    res.status(500).json({ error: errors });
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -60,11 +68,15 @@ export const updatePost = async (req: Request, res: Response) => {
 export const getPostById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const post = await Blog.findById(id);
-    if (!post) {
-      return res.status(404).json({ error: "Post not found" });
-    }
-    res.json(post);
+    Blog.findById(id)
+      .then((result) => {
+        return res.json(result);
+      })
+      .catch((err) => {
+        return res
+          .status(404)
+          .json({ error: "Post with given ID does not exist" });
+      });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
