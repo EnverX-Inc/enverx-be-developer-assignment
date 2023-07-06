@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
 import Blog from "../models/blog.model";
-import { validationResult } from "express-validator";
 
 export const getAllPosts = async (req: Request, res: Response) => {
   try {
-    const { filter } = req.query;
     let filterOptions = {};
+    const { filter } = req.query;
     if (filter) {
       filterOptions = { category: filter };
     }
@@ -13,7 +12,10 @@ export const getAllPosts = async (req: Request, res: Response) => {
       title: 1,
       createdAt: -1,
     });
-    res.json(posts);
+    if (posts.length == 0) {
+      return res.status(200).json({ message: "No Post available" });
+    }
+    return res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
@@ -43,11 +45,6 @@ export const createPost = async (req: Request, res: Response) => {
 };
 
 export const updatePost = async (req: Request, res: Response) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
   try {
     const { id } = req.params;
     const { title, content, category } = req.body;
@@ -59,9 +56,14 @@ export const updatePost = async (req: Request, res: Response) => {
     if (!post) {
       return res.status(404).json({ error: "Post not found" });
     }
-    res.json(post);
-  } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    return res.json(post);
+  } catch (err: any) {
+    if (err.codeName == "DuplicateKey") {
+      return res
+        .status(409)
+        .json({ error: `Blog with ${req.body.title} title already exist` });
+    }
+    return res.status(500).json({ error: "Error updating blog", message: err });
   }
 };
 
@@ -70,7 +72,7 @@ export const getPostById = async (req: Request, res: Response) => {
     const { id } = req.params;
     Blog.findById(id)
       .then((result) => {
-        return res.json(result);
+        return res.status(200).json(result);
       })
       .catch((err) => {
         return res
