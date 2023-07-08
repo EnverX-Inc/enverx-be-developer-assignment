@@ -9,12 +9,7 @@ and trade future carbon credits.
 
 ### Instructions
 
-```diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
+
 ```
 
 ### Task Requirements
@@ -34,7 +29,7 @@ Note: Make sure to add proper `commit` messages
 1. Set up a new Node.js project and initialize it with a package.json file.
 2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
 
-### blogs
+### blogs routes
 
 - `GET /blogs` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category). no authentication required.
 
@@ -53,15 +48,15 @@ Note: Make sure to add proper `commit` messages
 7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
 8. Optionally, include any additional features or improvements you think would enhance the API.
 
-### user login
+### user routes
 
-`post/signup`- to register user.
+`users/signup`- to register user.
 
-`post/login` - login user.
+`users/login` - login user.
 
 ### Timeline
 
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+
 
 ### To Be Considered
 
