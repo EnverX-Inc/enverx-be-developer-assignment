@@ -6,7 +6,8 @@ The Blog API allows you to manage blog posts with features such as creating, ret
 
 1. [API Base URL](#api-base-url)
 2. [Authentication](#authentication)
-3. [Endpoints](#endpoints)
+3. [MongoDB Setup](#mongodb-setup)
+4. [Endpoints](#endpoints)
    - [Get All Blogs](#get-all-blogs)
    - [Get Blog by ID](#get-blog-by-id)
    - [Create a Blog](#create-a-blog)
@@ -15,13 +16,80 @@ The Blog API allows you to manage blog posts with features such as creating, ret
 
 ## API Base URL
 
-The base URL for the API is: `http://localhost:8081/blogs/posts`
+The base URL for the API is: `http://localhost:8081/`
 
-Make sure to replace `api.example.com` with the actual domain or IP address where the API is hosted.
+Make sure to replace `http://localhost:8081/` with the corresponding routes 
+
+Eg:- `http://localhost:8081/blogs/posts`
 
 ## Authentication
 
 The API does not require authentication at this time. All endpoints are publicly accessible.
+
+## MongoDB Setup
+
+Before using the API, you need to set up a MongoDB database. Follow these steps to get started:
+
+1. Install MongoDB: If you haven't already, download and install MongoDB from the official website (https://www.mongodb.com) based on your operating system.
+
+2. Start MongoDB: Start the MongoDB server by running the appropriate command based on your installation and operating system.
+
+3. Connect to MongoDB: Connect to the MongoDB database by running the following command in your terminal or command prompt:
+
+mongosh
+
+4. Create a Database: Create a new database for the Blog API by running the following command in the MongoDB shell:
+
+use BlogDB
+    
+Replace `Anandhu` with your desired database name.
+
+5. Create a Collection: Create a collection named `blogs` within the `BlogDB` database by running the following command in the MongoDB shell:
+
+db.createCollection("blogs")
+   
+This collection will store the blog posts.
+
+6. Configure Connection String: In the API code, set the environment variable `CONNECTION_STRING` to your MongoDB connection string. For example:
+
+CONNECTION_STRING=mongodb://localhost:27017/BlogDB
+
+Replace `BlogDB` with your actual database name.
+
+Now you're ready to use the Blog API!
+
+## Installation
+
+To install the necessary dependencies for the Blog API, follow these steps:
+
+1. Open a terminal or command prompt.
+
+2. Navigate to the project directory.
+
+3. Run the following command to install the required dependencies:
+
+npm install
+
+
+This command will download and install all the dependencies listed in the `package.json` file.
+
+## Running the API
+
+To run the Blog API, follow these steps:
+
+1. Ensure that the MongoDB server is running.
+
+2. Open a terminal or command prompt.
+
+3. Navigate to the project directory.
+
+4. Run the following command to start the API:
+
+npm start
+
+This command will start the API server, and you should see a message indicating that the server is running on a specific port (e.g., `Server is running on port 8081`).
+
+5. You can now access the API endpoints using the specified base URL (`http://localhost:8081/`) and the available routes.
 
 ## Endpoints
 
@@ -95,4 +163,4 @@ Delete a specific blog post.
 
 That's all! You now have all of the information you need to set up and utilize the Blog API. Feel free to experiment with the various ends.
 
-If you have any further questions, please don't hesitate to me at anandhu.vikraman007@gmail.com.
+If you have any further questions, please don't hesitate to me at anandhu.vikraman007@gmail.com ;-)
