@@ -50,3 +50,13 @@ The estimated time to complete this assignment is 6-7 hours, but it may vary bas
 2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
 3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
 4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+
+### How to get started with this branch
+1. Take the latest pull of this branch
+2. Run "npm i"
+3. Make sure you have postgres installed
+4. Run "npx sequelize-cli db:migrate"
+5. Run "npx nodemon index.js" to start the server
+6. You can register, login and validate your token
+6. Perform CRUD operations on Postman using the above APIs
+7. Server runs on PORT 3000
