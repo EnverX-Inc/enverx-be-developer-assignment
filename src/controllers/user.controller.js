@@ -1,45 +1,51 @@
-const UserService = require('../services/user.services');
-const {HTTPError} = require('../utils/httpError');
+const userService = require('../services/user.services');
 
-const catchBlockHandler = (error, res) => {
-    if (error instanceof HTTPError) {
-        res.status(error.code).json({ message: error.message });
-    } else {
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-};
-
-const createUser = async (req, res) => {
+const postCredentials = async (req, res) => {
     try {
-        const { username, password } = req.body;
-        const user = await UserService.createUser(username, password);
-        return res
-            .status(201)
-            .json({ status: 201, data: user, message: 'Succesfully Created User' });
+      const { username, password } = req.body;
+      const result = await userService.postCredentials(username, password);
+      res.status(201).json({
+        message: "inserted",
+        data: {
+          credential: result,
+        },
+      });
     } catch (error) {
-        catchBlockHandler(error, res);
+      res.status(500).json({
+        error: error.message,
+      });
     }
-};
-const loginUser = async (req, res) => {
+  };
+  const userLogin = async (req, res) => {
     try {
-        const { username, password } = req.body;
-        const user = await UserService.loginUser(username, password);
-        return res
-            .status(200)
-            .json({ status: 200, data: user, message: 'Succesfully Logged in' });
+      const { username, password } = req.body;
+      const result = await userService.loginCredentials(username, password);
+      res.status(201).json({
+        message: "logged in",
+        data: {
+          JWT_token: result,
+        },
+      });
     } catch (error) {
-        catchBlockHandler(error, res);
+      res.status(500).json({
+        error: error.message,
+      });
     }
-};
-const checkTokenValidity = async (req, res) => {
+  };
+  
+  const validateToken = async (req, res) => {
     try {
-        const token = req.headers.authorization.split(' ')[1];
-        const decodedToken = await UserService.checkTokenValidity(token);
-        return res
-            .status(200)
-            .json({ status: 200, message: 'Token Verified', data: decodedToken });
+      const { token } = req.query;
+      const valid = await userService.validateToken(token);
+      res.status(200).json({
+        status: "success",
+        message: "user verified",
+        data: valid,
+      });
     } catch (error) {
-        catchBlockHandler(error, res);
+      res.status(500).json({
+        error: error.message,
+      });
     }
-};
-module.exports = { createUser, loginUser, checkTokenValidity };
+  };
+  module.exports = { postCredentials, userLogin, validateToken };

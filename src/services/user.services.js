@@ -1,43 +1,54 @@
-const Users = require('../../database/models/index').User;
-const HTTPError = require('../utils/httpError');
-const passwordUtil = require('../utils/password');
-const tokenUtil = require('../utils/token');
-const { UniqueConstraintError } = require('sequelize');
+const db = require('../../database/models/index')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const SALT_ROUNDS = 5;
+const SECRET = 'vgcvahgcfhsfd'
 
-const createUser = async (username, password) => {
-    try {
-        const encryptedPassword = await passwordUtil.encryptPassword(password);
-        const user = await Users.create({
-            username: username,
-            password: encryptedPassword,
-        });
-        return user.dataValues;
-    } catch (error) {
-        if (error instanceof UniqueConstraintError) {
-            console.log('Error');
-            throw new HTTPError('Username already exists', 400);
-        }
-        throw new HTTPError(500, 'Internal server error', 500);
+const postCredentials = async (username, password) => {
+
+    const user = await db.user.findOne({ where: { username: username } })
+    if (user) {
+        throw new Error('username already exists');
     }
+
+    password = await bcrypt.hash(password, SALT_ROUNDS);
+    const newCredential = await db.user.create({ username: username, password: password })
+    delete newCredential.dataValues.password;
+    return newCredential;
+
+}
+
+const loginCredentials = async (username, password) => {
+    const user = await db.user.findOne({ where: { username: username } })
+    if (!user) {
+        throw new Error('username does not exist');
+    }
+
+    const login = await bcrypt.compare(password, user.password);
+    if(!login) {
+        throw new Error('Incorrect Password');
+    }
+
+    return jwt.sign({ user: user.username }, SECRET ,{expiresIn:3600})
+}
+
+const validateToken = async (token) => {
+    if (!token || typeof token !== 'string') {
+        throw new Error('Invalid token format');
+    }
+
+    token = token.replace('Bearer ', '');
+
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, SECRET, (error, decoded) => {
+            if (error || !decoded) {
+                reject(error || new Error('Invalid token'));
+            }
+            resolve(decoded);
+        });
+    });
 };
 
-const loginUser = async (username, password) => {
-    const user = await Users.findOne({ where: { username: username } });
-    if (!user) throw new HTTPError('User not found', 400);
 
-    const checkIfPasswordIsValid = await passwordUtil.checkEncryptedPassword(
-        user.password,
-        password
-    );
-    if (!checkIfPasswordIsValid) throw new HTTPError('Invalid password', 401);
-    const newToken = await tokenUtil.generateToken(user.id);
-    return { user, token: newToken };
-};
 
-const checkTokenValidity = async (token) => {
-    const decodedToken = await tokenUtil.verifyToken(token);
-    if (!decodedToken) throw new HTTPError('Invalid token', 401);
-    return decodedToken;
-};
-
-module.exports = { createUser, loginUser, checkTokenValidity };
+module.exports = { postCredentials,loginCredentials,validateToken};

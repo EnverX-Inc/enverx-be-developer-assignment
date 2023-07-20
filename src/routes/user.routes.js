@@ -1,20 +1,11 @@
-const UserController = require('../controllers/user.controller');
-const {
-    validationMiddleware,
-    userSchema,
-} = require('../middleware/user.validator');
-const Router = require('express').Router;
-const router = Router();
+const express=require('express');
+const router=express.Router();
+const userController=require('../controllers/user.controller');
 
-router.post(
-    '/register',
-    validationMiddleware(userSchema),
-    UserController.createUser
-);
-router.post(
-    '/login',
-    validationMiddleware(userSchema),
-    UserController.loginUser
-);
-router.get('/token/validate', UserController.checkTokenValidity);
-module.exports = router ;
+router.route('/register')
+      .post(userController.postCredentials);
+router.route('/login')
+      .post(userController.userLogin); 
+router.route('/token/validate')
+      .get(userController.validateToken);            
+module.exports=router;
