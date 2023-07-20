@@ -1,5 +1,5 @@
 const UserService = require('../services/user.services');
-const HTTPError = require('../utils/httpError');
+const {HTTPError} = require('../utils/httpError');
 
 const catchBlockHandler = (error, res) => {
     if (error instanceof HTTPError) {

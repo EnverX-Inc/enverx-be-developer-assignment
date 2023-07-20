@@ -2,7 +2,7 @@ const UserController = require('../controllers/user.controller');
 const {
     validationMiddleware,
     userSchema,
-} = require('../middlewares/validation');
+} = require('../middleware/user.validator');
 const Router = require('express').Router;
 const router = Router();
 
@@ -17,4 +17,4 @@ router.post(
     UserController.loginUser
 );
 router.get('/token/validate', UserController.checkTokenValidity);
-module.exports = { router };
+module.exports = router ;
