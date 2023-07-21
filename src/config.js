@@ -9,6 +9,6 @@ const config = {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
-  }
+}
   
-  module.exports = config;
+module.exports = config;
