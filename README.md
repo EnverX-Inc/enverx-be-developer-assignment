@@ -2,9 +2,10 @@
 -> used `node version 18.14.2`
 1. setup .env help with env_sample (else I allready give my .env file)
 2. set up mongodb conection link (i use mongodb atlas)
-3. for run server `npm start`
+3. run `npm i`
+4. for run server `npm start`
     for development run `npm run dev`
-4. your server start on `8000` or `8001`
+5. your server start on `8000` or `8001`
 
 
 ### All APIs (if you use port 8000)
