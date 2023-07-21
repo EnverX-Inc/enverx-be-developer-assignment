@@ -26,6 +26,7 @@ const PostSchema = mongoose.Schema({
     }
 });
 
+//validator for unique id
 PostSchema.plugin(uniqueValidator);
 
 const Post = mongoose.model('Post', PostSchema);
