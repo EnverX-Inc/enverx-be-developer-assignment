@@ -11,3 +11,10 @@
 9. To delete blog post run `DELETE /posts/:id` - Delete a blog post.
 10. To get a post by id. Run `GET /posts/:id` - Get a specific blog post by ID.
 11. To get all posts with filter like searchQuery, pagination and category. Run `GET /posts` - Get all blog posts.
+
+
+### DEPLOYMENT
+- enverx-be-developer-assignment-production.up.railway.app
+- api hosted on railway.
+
+- MongoDB used as database
