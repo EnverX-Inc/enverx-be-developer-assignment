@@ -82,3 +82,16 @@ You just need a valid id to delete a post (Can be copied from '/posts' endpoint)
 
 <br>
 <br>
+
+
+# Setup steps to run this API locally:
+
+1. Clone the repository to your system.
+
+2. Run - __npm install__ in your terminal to install the required dependecies.
+
+3. Create a __.env__ file which will store the url of the database (Follow mongoDB official website to setup mongoDb locally or you can use their cloud services such as ATLAS).
+
+   The file will contain a single line : __DATABASE_URL= Insert your database url here__.
+
+4. Now run __nodemon index.js__ or __node index.js__ to start the server and you can test the API.
