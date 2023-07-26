@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "45269044-4486-4d74-b7d0-b1fefce0f789",
+		"name": "Blog Post Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12384518",
+		"_collection_link": "https://blue-crater-195194.postman.co/workspace/node-training~082fd0dd-d983-410f-8759-4b621942d011/collection/12384518-45269044-4486-4d74-b7d0-b1fefce0f789?action=share&creator=12384518&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "create post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hello world\",\r\n    \"content\":\"<h1>Hello world</h1>\",\r\n    \"meta\":{\r\n        \"description\":\"this is description\",\r\n        \"keywords\":\"posts,hello world\",\r\n        \"thumbnail\":\"https://google.com\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/posts/64c0f2bb23882f204590a368",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"64c0f2bb23882f204590a368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"meta\":{\r\n        \"description\":\"another one\",\r\n        \"keywords\":\"and\",\r\n        \"thumbnail\":\"https://google.com\"\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/posts/64c0f2bb23882f204590a368",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"64c0f2bb23882f204590a368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/posts/64c0f2bb23882f204590a368",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"64c0f2bb23882f204590a368"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
