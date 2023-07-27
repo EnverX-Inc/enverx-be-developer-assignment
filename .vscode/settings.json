@@ -1,0 +1,7 @@
+{
+	"javascript.validate.enable": true,
+	"javascript.format.enable": true,
+	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
+	
+}

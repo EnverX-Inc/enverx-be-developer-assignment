@@ -1,0 +1,3 @@
+./**/views/**/*.js
+./**/public/**/*.js
+./**/static/**/*.js
