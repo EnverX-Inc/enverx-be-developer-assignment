@@ -22,12 +22,4 @@ router.put(API_GROUP + "/post/:id", (...args) =>
     new BlogsController().update_blog_by_id(...args)
 );
 
-
-// //router.get(API_GROUP + '/posts', (...args) => new BlogsController().(...args));
-// router.get(API_GROUP + '/posts:id', (...args) => new DatasourceController().classify_institution_website(...args))
-// router.post(API_GROUP + '/post', datasourceCheckPrenavValidation, (...args) => new DatasourceController().check_prenav(...args));
-
-// router.put(API_GROUP + '/posts/:id', datasourceClasifyLogoValidation, (...args) => new DatasourceController().classify_logo(...args));
-// router.delete(API_GROUP + '/posts/:id', datasourceClasifyInstitutionLogoValidation, (...args) => new DatasourceController().classify_institution_logo(...args));*/
-
 module.exports = router;
