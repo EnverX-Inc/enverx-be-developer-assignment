@@ -20,10 +20,15 @@ npm install
 Make sure you have MongoDB installed and running.
 Update the  mongo db uri in .env For Example 
 
-MONGODB_URI=mongodb://localhost:27017/blogs_app 
+```
+MONGODB_URI=mongodb://localhost:27017/blogs_app
+```
 
-if using docker then no need for mongodb installed and running on system
-Update the  mongo db uri in .env MONGODB_URI=mongodb://mongodb:27017/blogs_app 
+IF using docker then no need for mongodb installed and running on system.
+Update the  mongo db uri in .env
+```
+MONGODB_URI=mongodb://mongodb:27017/blogs_app
+```
 
 # Usage
 
@@ -51,7 +56,8 @@ npm run coverage
 ## Exapmles
 
 ###  Get all blog posts
-GET
+
+  #### GET
 
 ```
   http://localhost:5555/api/v1/posts?category=sports
@@ -63,7 +69,8 @@ GET
 
 
 ### Get a Blog post by id
-GET
+
+  #### GET
 
 ```
   http://localhost:5555/api/v1/post/64c15a02a104d3f53c19b6c0
@@ -74,8 +81,10 @@ GET
 
 ### Update a Blog post by id
 
+   #### PUT
+
 ```
-PUT
+
   http://localhost:5555/api/v1/post/64c15a02a104d3f53c19b6c0
 
   //Request Body:
@@ -96,8 +105,10 @@ PUT
 
 ## Create a new blog post
 
+ #### POST
+
 ```
-POST
+
 http://localhost:5555/api/v1/post
 // Request Body:
   {
@@ -120,6 +131,8 @@ http://localhost:5555/api/v1/post
 ```
 
 ## Delete a  blog post by id
+
+  #### DELETE
 
 ```
 DELETE 
