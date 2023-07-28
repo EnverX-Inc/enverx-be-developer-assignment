@@ -135,7 +135,6 @@ http://localhost:5555/api/v1/post
   #### DELETE
 
 ```
-DELETE 
 http://localhost:5555/api/v1/post/1231313
 
 
