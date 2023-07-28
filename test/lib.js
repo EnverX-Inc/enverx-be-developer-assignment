@@ -1,6 +1,5 @@
 global._ = require("lodash");
 
-console.log("herere")
 const chai = require("chai");
 chai.use(require("chai-properties"));
 chai.use(require("chai-string")); // Load Chai assertions

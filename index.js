@@ -1,7 +1,6 @@
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
-var logger = require("morgan");
 const PORT = process.env.PORT || "5555";
 const mongoose = require("mongoose");
 require('dotenv').config()
@@ -10,11 +9,6 @@ var blogsRouter = require("./routes/blogs");
 
 var app = express();
 
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'pug');
-
-//app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -40,9 +34,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-//console.log("mongodb",mongodb,process.env.NODE_ENV);
-// mongodb://mongodb:27017/blogs_app
-//process.env.MONGODB_URI
+
 if (process.env.NODE_ENV != "test") {
   mongoose
     .connect(process.env.MONGODB_URI, {
@@ -61,7 +53,5 @@ if (process.env.NODE_ENV != "test") {
     console.log(`Listening on ${PORT}`);
   });
 }
-
-
 
 module.exports = app;

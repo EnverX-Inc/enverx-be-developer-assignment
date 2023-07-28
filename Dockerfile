@@ -1,17 +1,3 @@
-#FROM node:16
-
-#WORKDIR /app
-
-#copy ./package*.json ./
-
-#RUN npm install
-
-#COPY . .
-
-#EXPOSE 5555
-
-#CMD ["npm","run","start"]
-
 FROM node:latest
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

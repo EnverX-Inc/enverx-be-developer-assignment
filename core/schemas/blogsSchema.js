@@ -22,14 +22,7 @@ const postSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-  },
-  //   author: {
-  //     type: Schema({
-  //       type: String,
-  //       trim: true,
-  //       required: true,
-  //     }),
-  //   },
+  }
 });
 
 module.exports = mongoose.model("Post", postSchema);

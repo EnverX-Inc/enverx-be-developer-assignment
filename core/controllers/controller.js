@@ -2,6 +2,8 @@ const ApiError = require("../api-error");
 const API_RESPONSE = require("../lib/constants").apiResponses;
 
 class Controller {
+
+  //To get Well Formatted Error Object
   static get_error(category, description) {
     let response = API_RESPONSE[category];
     const err = new ApiError(response.description);
