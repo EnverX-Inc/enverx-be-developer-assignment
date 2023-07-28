@@ -6,7 +6,7 @@ This a simple CRUD REST Blogs API . Tech Stack NodeJS/ Express / MonogDB
 - Node.js 
 - MongoDB server or Docker and Docker compose
   
-## Method 1 Clone the repository and install dependencies
+## Clone the repository and install dependencies
 
 ``` 
 //on local
