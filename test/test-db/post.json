@@ -1,0 +1,17 @@
+[
+    {
+      "name": "sports blogs",
+      "content": "xyx content",
+      "category": "sports"
+    },
+    {
+      "name": "tech blogs",
+      "content": "xyx content",
+      "category": "tech"
+    },
+    {
+      "name": "food blogs",
+      "content": "xyz recipies",
+      "category": "food"
+    }
+  ]
