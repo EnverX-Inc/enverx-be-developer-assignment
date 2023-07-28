@@ -2,14 +2,6 @@ var express = require("express");
 var router = express.Router();
 const BlogsController = require("../core/controllers/blogs.controller");
 
-// const {
-//     datasourceClasifyLogoValidation,
-//     datasourceClassifyLoginUrlValidation,
-//     datasourceCheckPrenavValidation,
-//     datasourceClassifyInstitutionWebsiteValidation,
-//     datasourceClasifyInstitutionLogoValidation
-// } = require('./core/modules/validation')
-
 const API_GROUP = "/api/v1";
 
 router.get(API_GROUP + "/posts", (...args) =>
