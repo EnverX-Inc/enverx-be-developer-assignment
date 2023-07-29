@@ -1,0 +1,860 @@
+{
+	"info": {
+		"_postman_id": "5b0b8490-b18f-4819-aa0c-ecc8fd0a8018",
+		"name": "blog-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Understanding Ethereum\",\r\n    \"description\":\"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\r\n    \"category\":\"cryptocurrency\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Understanding Ethereum\",\r\n    \"description\":\"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\r\n    \"category\":\"cryptocurrency\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "321"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"141-MRqxGxheHqH1QTzRetYCi60uYLw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 11:41:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n    \"category\": \"cryptocurrency\",\n    \"name\": \"Understanding Ethereum\",\n    \"_id\": \"64c4fad8042702e1eb26174b\",\n    \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all posts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1005"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3ed-OnHtedIqb3baIJ0uZwb7U0fV5o0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 11:46:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64c4f9fcf3853527ecda508d\",\n        \"description\": \"Indian economy is the fastest growing economy\",\n        \"category\": \"economy\",\n        \"name\": \"Indian economy\",\n        \"createdDate\": \"2023-07-29T11:37:32.186Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fa62042702e1eb261747\",\n        \"description\": \"The future of the world is decentralized, equitable, and inclusive\",\n        \"category\": \"blockchain\",\n        \"name\": \"The Future of Work is Decentralization\",\n        \"createdDate\": \"2023-07-29T11:39:14.239Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4faa9042702e1eb261749\",\n        \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \" Peer-to-Peer Electronic Cash\",\n        \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fad8042702e1eb26174b\",\n        \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Understanding Ethereum\",\n        \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get post by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/64c4f9fcf3853527ecda508d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"64c4f9fcf3853527ecda508d"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get post by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts/64c4f9fcf3853527ecda508d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								"64c4f9fcf3853527ecda508d"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-P1TAH87+Yqo02vFhbv5sMwg5nYo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 11:48:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"64c4f9fcf3853527ecda508d\",\n    \"description\": \"Indian economy is the fastest growing economy\",\n    \"category\": \"economy\",\n    \"name\": \"Indian economy\",\n    \"createdDate\": \"2023-07-29T11:37:32.186Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all post by category name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?category=cryptocurrency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "cryptocurrency"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all post by category name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts?category=cryptocurrency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "cryptocurrency"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "570"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23a-/UdhYOuoo/zTEGEij6N007EoHbw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 12:00:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64c4faa9042702e1eb261749\",\n        \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Peer-to-Peer transaction\",\n        \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fad8042702e1eb26174b\",\n        \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Understanding Ethereum\",\n        \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all post(Sorted Created Date)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?sortBy=createdDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "createdDate"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all post(Sorted Created Date)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts?sortBy=createdDate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdDate"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1005"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3ed-rcQ8vrCaFXevMlGVPDbNBtYcRzc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 11:51:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64c4fad8042702e1eb26174b\",\n        \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Understanding Ethereum\",\n        \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4faa9042702e1eb261749\",\n        \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \" Peer-to-Peer Electronic Cash\",\n        \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fa62042702e1eb261747\",\n        \"description\": \"The future of the world is decentralized, equitable, and inclusive\",\n        \"category\": \"blockchain\",\n        \"name\": \"The Future of Work is Decentralization\",\n        \"createdDate\": \"2023-07-29T11:39:14.239Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4f9fcf3853527ecda508d\",\n        \"description\": \"Indian economy is the fastest growing economy\",\n        \"category\": \"economy\",\n        \"name\": \"Indian economy\",\n        \"createdDate\": \"2023-07-29T11:37:32.186Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all post(Sorted by name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?sortBy=name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all post(Sorted by name)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts?sortBy=name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1000"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e8-sxxroYyEa2rihfe7NJaLhrSU4c4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 12:00:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64c4f9fcf3853527ecda508d\",\n        \"description\": \"Indian economy is the fastest growing economy\",\n        \"category\": \"economy\",\n        \"name\": \"Indian economy\",\n        \"createdDate\": \"2023-07-29T11:37:32.186Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4faa9042702e1eb261749\",\n        \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Peer-to-Peer transaction\",\n        \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fa62042702e1eb261747\",\n        \"description\": \"The future of the world is decentralized, equitable, and inclusive\",\n        \"category\": \"blockchain\",\n        \"name\": \"The Future of Work is Decentralization\",\n        \"createdDate\": \"2023-07-29T11:39:14.239Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4fad8042702e1eb26174b\",\n        \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Understanding Ethereum\",\n        \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Peer-to-Peer transaction\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts/64c4faa9042702e1eb261749",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"64c4faa9042702e1eb261749"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update post",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Peer-to-Peer transaction\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts/64c4faa9042702e1eb261749",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								"64c4faa9042702e1eb261749"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "246"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f6-01opDbUhjI64rwb7NAHfDQmNFGE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 11:57:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"64c4faa9042702e1eb261749\",\n    \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n    \"category\": \"cryptocurrency\",\n    \"name\": \"Peer-to-Peer transaction\",\n    \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all post with a specific category and sorted by createdDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?sortBy=createdDate&category=cryptocurrency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "createdDate"
+						},
+						{
+							"key": "category",
+							"value": "cryptocurrency"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all post with a specific category and sorted by createdDate",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts?sortBy=createdDate&category=cryptocurrency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdDate"
+								},
+								{
+									"key": "category",
+									"value": "cryptocurrency"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "570"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23a-dB/HDn9MVUB03Wku6wyUKbnyqM8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 12:02:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"64c4fad8042702e1eb26174b\",\n        \"description\": \"Ethereum is an open-source, blockchain-based, decentralized computing platform created by Russian-Canadian programmer Vitalik Buterin in 2015 with an initial ...\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Understanding Ethereum\",\n        \"createdDate\": \"2023-07-29T11:41:12.832Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64c4faa9042702e1eb261749\",\n        \"description\": \"Bitcoin is a protocol which implements a public, permanent, and decentralized ledger\",\n        \"category\": \"cryptocurrency\",\n        \"name\": \"Peer-to-Peer transaction\",\n        \"createdDate\": \"2023-07-29T11:40:25.028Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete post by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/64c4f9fcf3853527ecda508d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"64c4f9fcf3853527ecda508d"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete post by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts/64c4f9fcf3853527ecda508d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								"64c4f9fcf3853527ecda508d"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-rEmktTUEFH2qUPBemFPmbOUYP0U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 12:05:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Blog deleted successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Error route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/error",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"error"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error route",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/error",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"error"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-0Dtvcl9Uh+wF5QyoZe4A1mHXDBI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Jul 2023 12:32:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Something went wrong!\"\n}"
+				}
+			]
+		}
+	]
+}
