@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Blog API - Node.js and Express.js</title>
 </head>
-
 <body>
     <h1>Blog API - Node.js and Express.js</h1>
     <p>This repository contains a Node.js and Express.js API for managing blog posts. The API provides CRUD (Create, Read,
         Update, Delete) operations on blog posts and includes sorting and filtering capabilities.</p>
-
-    <h2>API Endpoints</h2>
-
+<h2>API Endpoints</h2>
     <h3>Get All Blog Posts</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/posts</code></li>
@@ -25,7 +21,7 @@
         <li>http://localhost:3000/blog/posts?category=Travel blogs&sortBy=title</li>
     </ul>
 
-    <h3>Get Blog Posts by Category and Sort by Title</h3>
+<h3>Get Blog Posts by Category and Sort by Title</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/posts</code></li>
         <li><strong>Description</strong>: Get blog posts filtered by category and sorted by title.</li>
@@ -37,7 +33,7 @@
         </li>
     </ul>
 
-    <h3>Get Blog Posts by Category</h3>
+ <h3>Get Blog Posts by Category</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/posts</code></li>
         <li><strong>Description</strong>: Get blog posts filtered by category.</li>
@@ -49,7 +45,7 @@
         <li>http://localhost:3000/blog/posts?category=Travel blogs</li>
     </ul>
 
-    <h3>Get Blog Posts Sorted by Author</h3>
+ <h3>Get Blog Posts Sorted by Author</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/posts</code></li>
         <li><strong>Description</strong>: Get blog posts sorted by author.</li>
@@ -61,7 +57,7 @@
         <li>http://localhost:3000/blog/posts?category=sortBy=author</li>
     </ul>
 
-    <h3>Create a New Blog Post</h3>
+<h3>Create a New Blog Post</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>POST /blog/post</code></li>
         <li><strong>Description</strong>: Create a new blog post.</li>
@@ -76,21 +72,21 @@
         <li>http://localhost:3000/blog/post</li>
     </ul>
 
-    <h3>Get All Blog Posts (Alternative)</h3>
+<h3>Get All Blog Posts (Alternative)</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/get</code></li>
         <li><strong>Description</strong>: Get all blog posts.</li>
         <li>http://localhost:3000/blog/get</li>
     </ul>
 
-    <h3>Get a Specific Blog Post by ID</h3>
+<h3>Get a Specific Blog Post by ID</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>GET /blog/get/:id</code></li>
         <li><strong>Description</strong>: Get a specific blog post by its ID.</li>
         <li>http://localhost:3000/blog/get/:id</li>
     </ul>
 
-    <h3>Update an Existing Blog Post by ID</h3>
+ <h3>Update an Existing Blog Post by ID</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>PUT /blog/update/:id</code></li>
         <li><strong>Description</strong>: Update an existing blog post by its ID.</li>
@@ -98,16 +94,16 @@
             <code>content</code>, <code>category</code>, <code>author</code>.</li>
         <li>http://localhost:3000/blog/update/:id</li>
 
-    </ul>
+</ul>
 
-     <h3>Delete a Blog Post by ID</h3>
+ <h3>Delete a Blog Post by ID</h3>
     <ul>
         <li><strong>Endpoint</strong>: <code>DELETE /blog/delete/:id</code></li>
         <li><strong>Description</strong>: Delete a blog post by its ID.</li>
         <li>http://localhost:3000/blog/delete/:id</li>
     </ul>
 
-    <br/>
+<br/>
     <h1>Setup Steps to Run the Blog API Locally</h1>
     <ol>
         <li>
