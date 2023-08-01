@@ -119,7 +119,7 @@
             <p>Create a <code>.env</code> file which will store the URL of the database. Follow MongoDB's official website to
                 set up MongoDB locally or use their cloud services such as Atlas.</p>
             <p>The file will contain a single line:</p>
-            <pre><code>DATABASE_URL=Insert your database URL here.</code></pre>
+            <pre><code>DB_URL=Insert your database URL here.</code></pre>
         </li>
         <li>
             <strong>Start the Server:</strong>
