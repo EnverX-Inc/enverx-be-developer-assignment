@@ -1,52 +1,69 @@
-[![N|Solid](https://iili.io/Hi9giog.png)](https://www.enverx.com/)
+# Simple Blog Application RESTful API
 
-EnverX offers a simple and convenient platform to fund early-stage projects
-and trade future carbon credits.
+This is a simple blog application RESTful API built with Node.js, Express.js, TypeScript, and MongoDB. The API allows you to perform CRUD operations on blog posts and store them in a MongoDB database.
 
-## _Assginment For Backend Developer Role_
+## Getting Started
 
-### Instructions
-``` diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
-```
+Follow these steps to set up and run the API on your local machine:
 
-### Task Requirements
-1. Create a RESTful API for a simple blog application.
-2. Use Node.js and Express.js as the backend framework.
-3. Implement CRUD (Create, Read, Update, Delete) operations for blog posts.
-4. Store the blog posts in a dB
-5. Include validation for the API endpoints to ensure data integrity.
-6. Implement error handling and return appropriate HTTP status codes.
-7. Use Git for version control and host the project on GitHub.
-8. Write clear and concise documentation on how to set up and use the API.
-9. Use Typescript to get a Bonus point.
+1. **Prerequisites**:
+   - Node.js (https://nodejs.org)
+   - MongoDB (https://www.mongodb.com)
 
-### Functional Requirements
-1. Set up a new Node.js project and initialize it with a package.json file.
-2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/simple-blog-api.git
 
-- `GET /posts` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category).
-- `GET /posts/:id` - Get a specific blog post by ID.
-- `POST /posts` - Create a new blog post.
-- `PUT /posts/:id` - Update an existing blog post.
-- `DELETE /posts/:id` - Delete a blog post.
+3. **Change Branch**
+    ```bash
+    git checkout development
+4. **Install Dependencies**
+    ```bash
+   npm install
 
-3. Implement validation for the API endpoints to ensure the data is correct and complete.
-4. Handle errors gracefully and return appropriate HTTP status codes (e.g., 404 for not found, 500 for server errors, etc.).
-5. Test the API endpoints using a tool like Postman or cURL.
-6. Write a README.md file with instructions on setting up the project, running it, and using the API.
-7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
-8. Optionally, include any additional features or improvements you think would enhance the API.
+5. **Set Up MongoDB Connection**
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+    Ensure you have MongoDB installed and running on your local machine or have a remote MongoDB connection URL ready.
+    
+    Update the MongoDB connection URL in src/.env.
+    
+    Replace 'mongodb://localhost:27017/mycontacts_db' with your actual MongoDB connection URL.
 
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+6. **Define PORT**
+
+    Define PORT value in src/server.ts.
+
+7. **Run Application**
+
+    ```bash
+    npm start
+
+The application will start running on the mentioned PORT or 8000(default port)
+
+
+8. **API ENDPOINTS**
+
+#
+Base Route:- /v1/api
+#
+
+GET /posts/?sortBy="<title or createdAt>"&&category="<categoryName>" - Get all blog posts. 
+    Note: CreatedAt is latest first and name is in ascending
+
+GET /posts/:id - Get a specific blog post by ID.
+
+PUT /posts/:id - Update an existing blog post.
+
+DELETE /posts/:id - Delete a blog post.
+
+POST /posts/ - Create a new blog post. 
+
+#
+Example POST/PUT request body.
+```bash
+{       
+        "author": "author_name",
+        "title": "blog_title",
+        "content": "blog_description",
+        "category": "blog_category"
+}
