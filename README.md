@@ -1,52 +1,118 @@
-[![N|Solid](https://iili.io/Hi9giog.png)](https://www.enverx.com/)
+# EnverX Blog API
 
-EnverX offers a simple and convenient platform to fund early-stage projects
-and trade future carbon credits.
+Welcome to the EnverX Blog API! This is a simple RESTful API built using Node.js and Express.js for managing blog posts. The API provides endpoints for creating, reading, updating, and deleting blog posts.
 
-## _Assginment For Backend Developer Role_
+## Table of Contents
 
-### Instructions
-``` diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
-```
+- [Installation](#installation)
+- [Endpoints](#endpoints)
+- [Error Handling](#error-handling)
 
-### Task Requirements
-1. Create a RESTful API for a simple blog application.
-2. Use Node.js and Express.js as the backend framework.
-3. Implement CRUD (Create, Read, Update, Delete) operations for blog posts.
-4. Store the blog posts in a dB
-5. Include validation for the API endpoints to ensure data integrity.
-6. Implement error handling and return appropriate HTTP status codes.
-7. Use Git for version control and host the project on GitHub.
-8. Write clear and concise documentation on how to set up and use the API.
-9. Use Typescript to get a Bonus point.
+## Installation
 
-### Functional Requirements
-1. Set up a new Node.js project and initialize it with a package.json file.
-2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
+1. **Prerequisites**
 
-- `GET /posts` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category).
-- `GET /posts/:id` - Get a specific blog post by ID.
-- `POST /posts` - Create a new blog post.
-- `PUT /posts/:id` - Update an existing blog post.
-- `DELETE /posts/:id` - Delete a blog post.
+   - Node.js
+   - MongoDB
 
-3. Implement validation for the API endpoints to ensure the data is correct and complete.
-4. Handle errors gracefully and return appropriate HTTP status codes (e.g., 404 for not found, 500 for server errors, etc.).
-5. Test the API endpoints using a tool like Postman or cURL.
-6. Write a README.md file with instructions on setting up the project, running it, and using the API.
-7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
-8. Optionally, include any additional features or improvements you think would enhance the API.
+2. **Clone the Repository**:
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+   ```bash
+   git clone https://github.com/your-username/simple-blog-api.git
 
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+   ```
+
+3. **Change Branch**
+   ```bash
+   git checkout development
+   ```
+4. **Install Dependencies**
+
+   ```bash
+   npm install
+
+   ```
+
+5. **Set Up .env file**
+
+   ```
+    MONGODB_URI=mongodb://your_username:your_password@localhost:27017/your_database_name
+    PORT = 8080
+   ```
+
+6. **Run Server**
+
+   ```bash
+   npm start
+   ```
+
+## Endpoints
+
+The EnverX Blog API provides the following endpoints for managing blog posts:
+
+### Get All Blog Posts
+
+- **URL:** `/posts`
+- **Method:** `GET`
+- **Description:** Get all blog posts with optional sorting and filtering.
+- **Query Parameters:**
+
+  - `sortBy`: Sort the posts by `"createdAt"` (created date) or `"title"` (blog title). Default is `"createdAt"`.
+  - `sortDirection`: Sort direction, either `"asc"` (ascending) or `"desc"` (descending). Default is `"desc"`.
+  - `category`: Filter posts by category.
+
+- **Example URL:** `/posts?sortBy=createdAt&sortDirection=desc&category=technology`
+
+### Get a Specific Blog Post
+
+- **URL:** `/posts/:id`
+- **Method:** `GET`
+- **Description:** Get a specific blog post by ID.
+
+### Create a New Blog Post
+
+- **URL:** `/posts`
+- **Method:** `POST`
+- **Description:** Create a new blog post.
+- **Request Body:**
+  ```json
+  {
+    "author": "Author Name",
+    "title": "Blog Title",
+    "content": "Blog Content",
+    "category": "Blog Category"
+  }
+  ```
+
+### Update an Existing Blog Post
+
+- **URL:** `/posts/:id`
+- **Method:** `PUT`
+- **Description:** Update an existing blog post by ID.
+- **Request Body:**
+  ```json
+  {
+    "author": "Updated Author",
+    "title": "Updated Title",
+    "content": "Updated Content",
+    "category": "Updated Category"
+  }
+  ```
+
+### Delete a Blog Post
+
+- **URL:** `/posts/:id`
+- **Method:** `DELETE`
+- **Description:** Delete a blog post by ID.
+
+  Deletes the specified blog post with the given ID. Make sure to replace `:id` in the URL with the actual ID of the blog post you want to delete.
+
+Each endpoint is designed to handle specific CRUD operations on blog posts. You can use tools like Postman or cURL to interact with the API and perform these operations.
+
+## Error Handling
+
+The API handles errors gracefully and returns appropriate HTTP status codes:
+
+- `404 Not Found` if a requested post is not found.
+- `400 Bad Request` if an invalid post ID is provided.
+- `500 Internal Server Error` for other errors.
