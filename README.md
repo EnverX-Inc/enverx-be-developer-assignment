@@ -1,10 +1,10 @@
-# Simple Blog Application RESTful API
+# RESTFUL API FOR BLOG APPLICATION
 
 This is a simple blog application RESTful API built with Node.js, Express.js, TypeScript, and MongoDB. The API allows you to perform CRUD operations on blog posts and store them in a MongoDB database
 
 **File Structure**:
-
-/
+```
+simple-blog-api/
 ├── app.ts
 ├── config/
 │ └── ... (configuration files)
@@ -16,9 +16,8 @@ This is a simple blog application RESTful API built with Node.js, Express.js, Ty
 │ └── ... (route files)
 ├── .env
 ├── package.json
-├── tsconfig.json
 └── README.md
-
+```
 ## Getting Started
 
 Follow these steps to set up and run the API on your local machine:
@@ -77,10 +76,13 @@ POST /posts/:
 Create a new blog post.
 
 Example POST/PUT request body:
-
+```
 {
     "author": "author_name",
     "title": "blog_title", // minLength= 5, maxLength=100
     "content": "blog_description", // minLength = 50
     "category": "blog_category" // "Technology", "Travel", "Food", "Lifestyle", "Other"
 }
+```
+
+### BY : Ashray Jha
