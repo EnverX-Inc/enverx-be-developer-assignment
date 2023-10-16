@@ -50,3 +50,12 @@ The estimated time to complete this assignment is 6-7 hours, but it may vary bas
 2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
 3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
 4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+
+
+# Setup 
+1. clone the repo, npm install everything
+2. copy .env.example and rename it to .env
+3. use your mongodb server uri
+4. start the server | use "npm run dev" & "npm start" for development & production mode respectively
+5. Import api doc for postman \ thunder client using postman.json & thunderclient.json 
+6. Hire me https://cryptolancer.in
