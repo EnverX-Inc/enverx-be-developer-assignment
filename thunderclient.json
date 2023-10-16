@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Blog",
+    "dateExported": "2023-10-16T18:11:43.456Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "200114d0-d5a5-44bb-a995-06736c4e856d",
+            "colId": "91ab534a-21c6-48c2-bdc3-d9884b6a4b75",
+            "containerId": "",
+            "name": "http://localhost:8001/api/v1/posts",
+            "url": "http://localhost:8001/api/v1/posts",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-16T17:57:52.743Z",
+            "modified": "2023-10-16T17:57:52.743Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e05e5b92-40d0-416a-96d0-8571a1f29ef8",
+            "colId": "91ab534a-21c6-48c2-bdc3-d9884b6a4b75",
+            "containerId": "",
+            "name": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "url": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-10-16T18:04:15.873Z",
+            "modified": "2023-10-16T18:04:30.918Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3e2691f2-da25-4d63-aa07-c3ee34496196",
+            "colId": "91ab534a-21c6-48c2-bdc3-d9884b6a4b75",
+            "containerId": "",
+            "name": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "url": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "method": "PUT",
+            "sortNum": 17500,
+            "created": "2023-10-16T18:04:55.174Z",
+            "modified": "2023-10-16T18:06:06.369Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"blog1 - updated\",\n  \"description\":\"blog 1 test desc\",\n  \"image\":\"https://i.giphy.com/media/Wp3RGzBHPb3sUUcPO5/giphy.webp\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "289b9e70-60b2-4299-93e8-40385e296794",
+            "colId": "91ab534a-21c6-48c2-bdc3-d9884b6a4b75",
+            "containerId": "",
+            "name": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "url": "http://localhost:8001/api/v1/posts/652d7aecfb8e91c46c103a59",
+            "method": "DELETE",
+            "sortNum": 18750,
+            "created": "2023-10-16T18:06:47.396Z",
+            "modified": "2023-10-16T18:07:09.514Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3649cc54-2b07-4c63-8ee6-5be637bce8ef",
+            "colId": "91ab534a-21c6-48c2-bdc3-d9884b6a4b75",
+            "containerId": "",
+            "name": "http://localhost:8001/api/v1/posts",
+            "url": "http://localhost:8001/api/v1/posts",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-16T17:58:16.089Z",
+            "modified": "2023-10-16T18:03:24.368Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"blog1\",\n  \"description\":\"blog 1 test desc\",\n  \"image\":\"https://i.giphy.com/media/Wp3RGzBHPb3sUUcPO5/giphy.webp\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
